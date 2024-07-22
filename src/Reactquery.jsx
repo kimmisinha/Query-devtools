@@ -11,9 +11,10 @@ const fetchProducts = async () => {
 function Reactquery() {
   const [count, setCount] = useState(0);
   const { data, error, isLoading, refetch } = useQuery({
-    queryKey: ["products"],
+    queryKey: ["products",count % 5 === 0 && count !== 0 ],
     queryFn: fetchProducts,
-    refetchInterval: count % 5 === 0 && count !== 0 ? 5000 : false, 
+    
+    // refetchInterval: count % 5 === 0 && count !== 0 ? 5000 : false, 
 
   });
 
@@ -32,7 +33,7 @@ function Reactquery() {
       <h1 style={{ textAlign: "center", color: "#333" }}>
         Products Using React Query
       </h1>
-      {count % 5 === 0 && count !== 0 && (
+      {/* {count % 5 === 0 && count !== 0 && ( */}
         <ul style={{ listStyleType: "none", padding: 0 }}>
           {data &&
             data.map((product) => (
@@ -62,7 +63,8 @@ function Reactquery() {
               </li>
             ))}
         </ul>
-      )}
+      {/* ) */}
+      {/* } */}
     </div>
   );
 }

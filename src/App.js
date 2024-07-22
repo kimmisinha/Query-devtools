@@ -8,6 +8,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">
+        
         <Reactquery />
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
